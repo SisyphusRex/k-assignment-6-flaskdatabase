@@ -2,3 +2,8 @@
 
 # Third Party Imports
 from flask import render_template
+
+
+def home_view():
+    """home view"""
+    return render_template("home.html")
