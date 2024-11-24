@@ -20,7 +20,7 @@ Then in a browser go to http://127.0.0.1:5000/
 # System Imports
 
 # First Party Imports
-from views.home import home_view
+from views.home import home_view, contact_view
 
 # Third Party Imports
 from flask import Flask
@@ -38,3 +38,4 @@ app = Flask(__name__)
 #     # Return a string that will be the full response the browser gets
 #     return "<h1>Hello, World!</h1>"
 app.add_url_rule("/", view_func=home_view)
+app.add_url_rule("/contact", view_func=contact_view)
