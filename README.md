@@ -96,7 +96,8 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 | **Total**                               | **100**|
 
 ## Outside Resources Used
-
+1. https://werkzeug.palletsprojects.com/en/stable/
+    * used to diagnose to_url() ValueError
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
