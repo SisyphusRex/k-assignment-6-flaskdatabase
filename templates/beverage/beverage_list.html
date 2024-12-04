@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Beverage List{% endblock title %}
+
+{% block content %}
+  <h1> Beverage List</h1>
+  <a href="{{ url_for('beverage_add_view') }}" class="btn btn-primary float-end">Add New</a>
+  <table class="table table-striped"
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Pack</th>
+      <th>Price</th>
+      <th>Active</th>
+      <th class="text-end">Actions</th>
+    </tr>
+    {% for beverage in beverages %}
+      <tr>
+        <td>{{ beverage.id }}</td>
+        <td>{{ beverage.name }}</td>
+        <td>{{ beverage.pack }}</td>
+        <td>{{ beverage.price }}</td>
+        <td>{{ beverage.active }}</td>
+        <td class="text-end">
+          <a
+            href="{{ url_for('beverage_edit_view', pk=beverage.id) }}"
+            class="btn btn-success"
+          >
+            Edit
+          </a>
+          <a href="#" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock content %}

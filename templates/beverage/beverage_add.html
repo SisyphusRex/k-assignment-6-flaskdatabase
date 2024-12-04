@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Beverage Add{% endblock title %}
+
+{% block content %}
+  <h1>Beverage Add</h1>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="id" class="form-label">ID:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="id_id"
+        name="id"
+        placeholder="ID"
+        {% if errors %}
+          value="{{ request.form['id'] }}"
+        {% endif %}
+      >
+      <div id="id_help_id" class="form-text">ID of New Beverage</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name_id"
+        name="name"
+        placeholder="Name"
+        {% if errors%}
+          value="{{ request.form['name'] }}"
+        {% endif %}
+      >
+      <div id="name_help_id" class="form-text">Name of New Beverage</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="pack" class="form-label">Pack:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pack_id"
+        name="pack"
+        placeholder="Pack"
+        {% if errors %}
+          value="{{ request.form['pack'] }}"
+        {% endif %}
+      >
+      <div id="pack_help_id" class="form-text">Pack of New Beverage</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="price_id"
+        name="price"
+        placeholder="Price"
+        {% if errors %}
+          value="{{ request.form['price'] }}"
+        {% endif %}
+      >
+      <div id="price_help_id" class="form-text">Price of New Beverage</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="active" class="form-label">Active:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="active_id"
+        name="active"
+        placeholder="Active"
+        {% if errors %}
+          value="{{ request.form['active'] }}"
+        {% endif %}
+      >
+      <div id="active_help_id" class="form-text">Active of New Beverage</div>
+    </div>
+
+    <button class="btn btn-success" type="submit">Add</button>
+    <a href="{{ url_for('beverage_list_view') }}" class="btn btn-secondary">Cancel</a>
+
+
+  </form>
+{% endblock content %}
