@@ -53,7 +53,7 @@ app.add_url_rule("/contact", view_func=contact_view)
 app.add_url_rule("/beverages", view_func=beverage_list_view)
 app.add_url_rule("/beverages/add", view_func=beverage_add_view, methods=["GET", "POST"])
 app.add_url_rule(
-    "/beverages/<int:pk>/edit",
+    "/beverages/<string:pk>/edit",
     view_func=beverage_edit_view,
     methods=["GET", "POST"],
 )
