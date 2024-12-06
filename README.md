@@ -101,5 +101,7 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
-
+1. TypeError when using the Active field.  True/False and 0/1 do not work as bools.
+    * Need to figure out how to convert input to bool
+    * or use radio buttons (checkboxes) and convert to bool
 

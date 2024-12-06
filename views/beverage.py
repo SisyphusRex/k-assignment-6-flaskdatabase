@@ -15,22 +15,23 @@ def beverage_list_view():
     """display a list of employees from the database"""
     beverages = db_session.query(Beverage).all()
 
-    return render_template("beverage/beverage_list.html",
-                           beverages=beverages,
-                           )
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=beverages,
+    )
 
 
 def beverage_add_view():
     """allow adding a beverage to database"""
 
     errors = []
-
+    status = None
     if request.method == "POST":
         id_ = request.form["id"]
         name = request.form["name"]
         pack = request.form["pack"]
         price = request.form["price"]
-        active = request.form["active"]
+        status = request.form.get("status")
 
         if not id_:
             errors.append("ID is required.")
@@ -40,11 +41,11 @@ def beverage_add_view():
             errors.append("Pack is required.")
         if not price:
             errors.append("Price is required.")
-        if not active:
-            errors.append("Active is required.")
+        if status is None:
+            errors.append("Status active/inactive is required.")
 
         if not errors:
-            new_beverage = Beverage(id_, name, pack, price, active)
+            new_beverage = Beverage(id_, name, pack, price, bool(status))
 
             db_session.add(new_beverage)
             db_session.commit()
@@ -56,6 +57,7 @@ def beverage_add_view():
     return render_template(
         "beverage/beverage_add.html",
         errors=errors,
+        status=status,
     )
 
 
@@ -71,29 +73,27 @@ def beverage_edit_view(pk):
         return redirect(url_for("beverage_list_view"))
 
     if request.method == "POST":
-        id_ = request.form["id"]
+
         name = request.form["name"]
         pack = request.form["pack"]
         price = request.form["price"]
-        active = request.form["active"]
+        status = request.form.get("status")
 
-        if not id_:
-            errors.append("ID is required.")
         if not name:
             errors.append("Name is required.")
         if not pack:
             errors.append("Pack is required.")
         if not price:
             errors.append("Price is required.")
-        if not active:
-            errors.append("Active is required.")
+        if status is None:
+            errors.append("Status active/inactive is required.")
 
         if not errors:
-            beverage.id = id_
+
             beverage.name = name
             beverage.pack = pack
             beverage.price = price
-            beverage.active = active
+            beverage.active = bool(status)
             db_session.commit()
 
             flash("Beverage updated successfully!", "success")

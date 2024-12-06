@@ -18,8 +18,9 @@
         {% else %}
           value="{{ beverage.id }}"
         {% endif %}
+        disabled
       >
-      <div id="id_help_id" class="form-text">ID of New Beverage</div>
+      <div id="id_help_id" class="form-text">ID of Beverage</div>
     </div>
 
     <div class="mb-3">
@@ -74,20 +75,27 @@
     </div>
 
     <div class="mb-3">
-      <label for="active" class="form-label">Active:</label>
+      <label for="active_id" class="form-label">Active</label>
       <input
-        type="text"
-        class="form-control"
+        type="radio"
         id="active_id"
-        name="active"
-        placeholder="Active"
-        {% if errors %}
-          value="{{ request.form['active'] }}"
-        {% else %}
-          value="{{ beverage.active }}"
+        name="status"
+        value="True"
+        {% if beverage.active %}
+          checked
         {% endif %}
       >
-      <div id="active_help_id" class="form-text">Active of New Beverage</div>
+      <label for="inactive_id">Inactive</label>
+      <input
+        type="radio"
+        id="inactive_id"
+        name="status"
+        value=""
+        {% if not beverage.active %}
+          checked
+        {% endif %}
+      >
+
     </div>
 
     <button class="btn btn-success" type="submit">Edit</button>
