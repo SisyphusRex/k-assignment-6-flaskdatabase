@@ -110,4 +110,9 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 1. 12/05/24 TypeError when using the Active field.  True/False and 0/1 do not work as bools.
     * Need to figure out how to convert input to bool
     * or use radio buttons (checkboxes) and convert to bool
+    * NOTE: Fixed it.  change checkbox input values to 1 or true for Active, and empty string for inactive
+        cast to bool when updating beverage in database
+
+2. 12/06/24: All of the beverages in the database are set to Active: False
+    * I don't remember if the database came this way, or if I screwed something up
 
