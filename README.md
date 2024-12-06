@@ -98,10 +98,16 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 ## Outside Resources Used
 1. https://werkzeug.palletsprojects.com/en/stable/
     * used to diagnose to_url() ValueError
+2. https://stackoverflow.com/questions/31859903/get-the-value-of-a-checkbox-in-flask
+    * how to get radiobox value
+3. https://stackoverflow.com/questions/19614027/jinja2-template-variable-if-none-object-set-a-default-value
+    * how to test for None/null in jinja (use none)
+4. https://stackoverflow.com/questions/20134651/does-jinja2-support-nested-if-statements
+    * jinja2 nested if statements
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
-1. TypeError when using the Active field.  True/False and 0/1 do not work as bools.
+1. 12/05/24 TypeError when using the Active field.  True/False and 0/1 do not work as bools.
     * Need to figure out how to convert input to bool
     * or use radio buttons (checkboxes) and convert to bool
 
