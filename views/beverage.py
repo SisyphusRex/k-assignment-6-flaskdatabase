@@ -15,7 +15,9 @@ def beverage_list_view():
     """display a list of employees from the database"""
     beverages = db_session.query(Beverage).all()
 
-    return render_template("beverage/beverage_list.html", beverages=beverages)
+    return render_template("beverage/beverage_list.html",
+                           beverages=beverages,
+                           )
 
 
 def beverage_add_view():
@@ -100,5 +102,30 @@ def beverage_edit_view(pk):
 
     return render_template(
         "beverage/beverage_edit.html",
+        beverage=beverage,
+        errors=errors,
+    )
+
+
+def beverage_delete_view(pk):
+    """delete beverage view"""
+    errors = []
+    beverage = db_session.get(Beverage, pk)
+
+    if not beverage:
+        flash(f"Unknown beverage with pk of {pk}", "danger")
+        return redirect(url_for("beverage_list_view"))
+
+    if beverage and request.method == "POST":
+        db_session.delete(beverage)
+        db_session.commit()
+
+        flash("Beverage deleted successfully!", "success")
+
+        return redirect(url_for("beverage_list_view"))
+
+    return render_template(
+        "beverage/beverage_delete.html",
+        beverage=beverage,
         errors=errors,
     )

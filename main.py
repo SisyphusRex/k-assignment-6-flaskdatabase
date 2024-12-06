@@ -29,6 +29,7 @@ from views.beverage import (
     beverage_list_view,
     beverage_add_view,
     beverage_edit_view,
+    beverage_delete_view,
 )
 
 # Third Party Imports
@@ -55,5 +56,10 @@ app.add_url_rule("/beverages/add", view_func=beverage_add_view, methods=["GET", 
 app.add_url_rule(
     "/beverages/<string:pk>/edit",
     view_func=beverage_edit_view,
+    methods=["GET", "POST"],
+)
+app.add_url_rule(
+    "/beverages/<string:pk>/delete",
+    view_func=beverage_delete_view,
     methods=["GET", "POST"],
 )

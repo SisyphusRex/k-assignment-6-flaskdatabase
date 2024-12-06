@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Beverage Edit{% endblock title %}
+{% block title %}Beverage Delete{% endblock title %}
 
 {% block content %}
-  <h1>Beverage Edit</h1>
+  <h1>Beverage Delete</h1>
   <form method="POST">
     <div class="mb-3">
       <label for="id" class="form-label">ID:</label>
@@ -13,11 +13,8 @@
         id="id_id"
         name="id"
         placeholder="ID"
-        {% if errors %}
-          value="{{ request.form['id'] }}"
-        {% else %}
-          value="{{ beverage.id }}"
-        {% endif %}
+        value="{{ beverage.id }}"
+        disabled
       >
       <div id="id_help_id" class="form-text">ID of New Beverage</div>
     </div>
@@ -30,11 +27,8 @@
         id="name_id"
         name="name"
         placeholder="Name"
-        {% if errors %}
-          value="{{ request.form['name'] }}"
-        {% else %}
-          value="{{ beverage.name }}"
-        {% endif %}
+        value="{{ beverage.name }}"
+        disabled
       >
       <div id="name_help_id" class="form-text">Name of New Beverage</div>
     </div>
@@ -47,11 +41,8 @@
         id="pack_id"
         name="pack"
         placeholder="Pack"
-        {% if errors %}
-          value="{{ request.form['pack'] }}"
-        {% else %}
-          value="{{ beverage.pack }}"
-        {% endif %}
+        value="{{ beverage.pack }}"
+        disabled
       >
       <div id="pack_help_id" class="form-text">Pack of New Beverage</div>
     </div>
@@ -64,11 +55,8 @@
         id="price_id"
         name="price"
         placeholder="Price"
-        {% if errors %}
-          value="{{ request.form['price'] }}"
-        {% else %}
-          value="{{ beverage.price }}"
-        {% endif %}
+        value="{{ beverage.price }}"
+        disabled
       >
       <div id="price_help_id" class="form-text">Price of New Beverage</div>
     </div>
@@ -81,16 +69,14 @@
         id="active_id"
         name="active"
         placeholder="Active"
-        {% if errors %}
-          value="{{ request.form['active'] }}"
-        {% else %}
-          value="{{ beverage.active }}"
-        {% endif %}
+        value="{{ beverage.active }}"
+        disabled
       >
       <div id="active_help_id" class="form-text">Active of New Beverage</div>
     </div>
 
-    <button class="btn btn-success" type="submit">Edit</button>
+    <h3>Are you sure you want to delete this beverage?</h3>
+    <button class="btn btn-danger" type="submit">Delete</button>
     <a href="{{ url_for('beverage_list_view') }}" class="btn btn-secondary">Cancel</a>
 
 

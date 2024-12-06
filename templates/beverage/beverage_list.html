@@ -28,7 +28,7 @@
           >
             Edit
           </a>
-          <a href="#" class="btn btn-danger">Delete</a>
+          <a href="{{ url_for('beverage_delete_view', pk=beverage.id) }}" class="btn btn-danger">Delete</a>
         </td>
       </tr>
     {% endfor %}
