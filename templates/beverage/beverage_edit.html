@@ -81,8 +81,14 @@
         id="active_id"
         name="status"
         value="True"
-        {% if beverage.active %}
-          checked
+        {% if errors %}
+          {% if request.form.get["status"] == "True" %}
+            checked
+          {% endif %}
+        {% else %}
+          {% if beverage.active %}
+            checked
+          {% endif %}
         {% endif %}
       >
       <label for="inactive_id">Inactive</label>
@@ -91,8 +97,14 @@
         id="inactive_id"
         name="status"
         value=""
-        {% if not beverage.active %}
-          checked
+        {% if errors %}
+          {% if request.form.get("status") == "" %}
+            checked
+          {% endif %}
+        {% else %}
+          {% if not beverage.active %}
+            checked
+          {% endif %}
         {% endif %}
       >
 
