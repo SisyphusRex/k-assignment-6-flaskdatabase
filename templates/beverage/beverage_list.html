@@ -3,16 +3,16 @@
 {% block title %}Beverage List{% endblock title %}
 
 {% block content %}
-  <h1> Beverage List</h1>
+  <h1 style="color: Cyan"> Beverage List</h1>
   <a href="{{ url_for('beverage_add_view') }}" class="btn btn-primary float-end">Add New</a>
-  <table class="table table-striped"
+  <table class="table table-striped">
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Pack</th>
-      <th>Price</th>
-      <th>Active</th>
-      <th class="text-end">Actions</th>
+      <th style="color: HotPink">ID</th>
+      <th style="color: Pink">Name</th>
+      <th style="color: Plum">Pack</th>
+      <th style="color: MediumVioletRed">Price</th>
+      <th style="color: PaleVioletRed">Active</th>
+      <th class="text-end" style="color: Magenta">Actions</th>
     </tr>
     {% for beverage in beverages %}
       <tr>

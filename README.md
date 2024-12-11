@@ -116,3 +116,5 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 2. 12/06/24: All of the beverages in the database are set to Active: False
     * I don't remember if the database came this way, or if I screwed something up
 
+3. https://api.beverage.barnesbrothers.net/beverages
+
