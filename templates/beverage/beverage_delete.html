@@ -3,10 +3,10 @@
 {% block title %}Beverage Delete{% endblock title %}
 
 {% block content %}
-  <h1>Beverage Delete</h1>
+  <h1 style="color: Cyan">Beverage Delete</h1>
   <form method="POST">
     <div class="mb-3">
-      <label for="id" class="form-label">ID:</label>
+      <label for="id" class="form-label" style="color: Cyan">ID:</label>
       <input
         type="text"
         class="form-control"
@@ -16,11 +16,11 @@
         value="{{ beverage.id }}"
         disabled
       >
-      <div id="id_help_id" class="form-text">ID of New Beverage</div>
+      <div id="id_help_id" class="form-text" style="color: Cyan">ID of New Beverage</div>
     </div>
 
     <div class="mb-3">
-      <label for="name" class="form-label">Name:</label>
+      <label for="name" class="form-label" style="color: Cyan">Name:</label>
       <input
         type="text"
         class="form-control"
@@ -30,11 +30,11 @@
         value="{{ beverage.name }}"
         disabled
       >
-      <div id="name_help_id" class="form-text">Name of New Beverage</div>
+      <div id="name_help_id" class="form-text" style="color: Cyan">Name of New Beverage</div>
     </div>
 
     <div class="mb-3">
-      <label for="pack" class="form-label">Pack:</label>
+      <label for="pack" class="form-label" style="color: Cyan">Pack:</label>
       <input
         type="text"
         class="form-control"
@@ -44,11 +44,11 @@
         value="{{ beverage.pack }}"
         disabled
       >
-      <div id="pack_help_id" class="form-text">Pack of New Beverage</div>
+      <div id="pack_help_id" class="form-text" style="color: Cyan">Pack of New Beverage</div>
     </div>
 
     <div class="mb-3">
-      <label for="price" class="form-label">Price:</label>
+      <label for="price" class="form-label" style="color: Cyan">Price:</label>
       <input
         type="text"
         class="form-control"
@@ -58,11 +58,11 @@
         value="{{ beverage.price }}"
         disabled
       >
-      <div id="price_help_id" class="form-text">Price of New Beverage</div>
+      <div id="price_help_id" class="form-text" style="color: Cyan">Price of New Beverage</div>
     </div>
 
     <div class="mb-3">
-      <label for="active_id" class="form-label">Active</label>
+      <label for="active_id" class="form-label" style="color: Cyan">Active</label>
       <input
         type="radio"
         id="active_id"
@@ -73,7 +73,7 @@
         {% endif %}
         disabled
       >
-      <label for="inactive_id">Inactive</label>
+      <label for="inactive_id" style="color: Cyan">Inactive</label>
       <input
         type="radio"
         id="inactive_id"
@@ -87,7 +87,7 @@
 
     </div>
 
-    <h3>Are you sure you want to delete this beverage?</h3>
+    <h3 style="color: Cyan">Are you sure you want to delete this beverage?</h3>
     <button class="btn btn-danger" type="submit">Delete</button>
     <a href="{{ url_for('beverage_list_view') }}" class="btn btn-secondary">Cancel</a>
 

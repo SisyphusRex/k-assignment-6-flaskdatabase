@@ -5,10 +5,12 @@ from sqlalchemy.orm import sessionmaker
 
 # First-party imports
 from models.beverage import Beverage
+from utils import Utilities
 
 engine = create_engine("sqlite:///db.sqlite3", echo=False)
 Session = sessionmaker(bind=engine)
 db_session = Session()
+sorter = Utilities()
 
 
 def beverage_list_view():
