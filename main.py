@@ -30,6 +30,15 @@ from views.beverage import (
     beverage_add_view,
     beverage_edit_view,
     beverage_delete_view,
+    beverage_sort_by_id_ascending_view,
+    beverage_sort_by_name_ascending_view,
+    beverage_sort_by_price_ascending_view,
+    beverage_sort_by_pack_ascending_view,
+    beverage_sort_by_active_true_view,
+    beverage_sort_by_id_descending_view,
+    beverage_sort_by_name_descending_view,
+    beverage_sort_by_pack_descending_view,
+    beverage_sort_by_price_descending_view,
 )
 
 # Third Party Imports
@@ -62,4 +71,31 @@ app.add_url_rule(
     "/beverages/<string:pk>/delete",
     view_func=beverage_delete_view,
     methods=["GET", "POST"],
+)
+app.add_url_rule(
+    "/beverages/ascending_id", view_func=beverage_sort_by_id_ascending_view
+)
+app.add_url_rule(
+    "/beverages/ascending_name", view_func=beverage_sort_by_name_ascending_view
+)
+app.add_url_rule(
+    "/beverages/ascending_price", view_func=beverage_sort_by_price_ascending_view
+)
+app.add_url_rule(
+    "/beverages/ascending_pack", view_func=beverage_sort_by_pack_ascending_view
+)
+app.add_url_rule(
+    "/beverages/ascending_active", view_func=beverage_sort_by_active_true_view
+)
+app.add_url_rule(
+    "/beverages/descending_id", view_func=beverage_sort_by_id_descending_view
+)
+app.add_url_rule(
+    "/beverages/descending_name", view_func=beverage_sort_by_name_descending_view
+)
+app.add_url_rule(
+    "/beverages/descending_pack", view_func=beverage_sort_by_pack_descending_view
+)
+app.add_url_rule(
+    "/beverages/descending_price", view_func=beverage_sort_by_price_descending_view
 )

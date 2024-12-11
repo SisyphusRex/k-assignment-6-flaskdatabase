@@ -11,15 +11,102 @@
       </span>
     <thead>
     <tr>
-      <th>
-        <button>
-          ID
+      <th style="color: DeepPink">
+        ID
+        <a
+            href="{{ url_for('beverage_sort_by_id_ascending_view') }}"
+            class="btn btn-success"
+          >
+          ↑
+        </a>
+        <a
+            href="{{ url_for('beverage_sort_by_id_descending_view') }}"
+            class="btn btn-success"
+          >
+          ↓
+        </a>
+      </th>
+      <th style="color: DeepPink">
+        Name
+        <a
+            href="{{ url_for('beverage_sort_by_name_ascending_view') }}"
+            class="btn btn-success"
+          >
+          ↑
+        </a>
+        <a
+            href="{{ url_for('beverage_sort_by_name_descending_view') }}"
+            class="btn btn-success"
+          >
+          ↓
+        </a>
+      </th>
+      <th style="color: Plum" >
+        Pack
+        <a
+            href="{{ url_for('beverage_sort_by_pack_ascending_view') }}"
+            class="btn btn-success"
+          >
+          ↑
+        </a>
+        <a
+            href="{{ url_for('beverage_sort_by_pack_descending_view') }}"
+            class="btn btn-success"
+          >
+          ↓
+        </a>
+      </th>
+      <th style="color: MediumVioletRed">
+        Price
+        <a
+            href="{{ url_for('beverage_sort_by_price_ascending_view') }}"
+            class="btn btn-success"
+          >
+          ↑
+        </a>
+        <a
+            href="{{ url_for('beverage_sort_by_price_descending_view') }}"
+            class="btn btn-success"
+          >
+          ↓
+        </a>
+      </th>
+      <th style="color: PaleVioletRed">
+        Active
+        <div class="mb-3">
+          <label for="active_id" class="form-label" style="color: Cyan">Active</label>
+          <input
+            type="radio"
+            id="active_id"
+            name="status"
+            value="1"
 
-        </button>
-      <th style="color: Pink" onclick="sortTable(1)">Name</th>
-      <th style="color: Plum" >Pack</th>
-      <th style="color: MediumVioletRed">Price</th>
-      <th style="color: PaleVioletRed">Active</th>
+            {% if status == "1" %}
+              checked
+            {% endif %}
+
+          >
+          <label for="inactive_id" style="color: Cyan">Inactive</label>
+          <input
+            type="radio"
+            id="inactive_id"
+            name="status"
+            value="0"
+
+            {% if not status == "0" %}
+              checked
+            {% endif %}
+
+          >
+          <label for="inactive_id" style="color: Cyan">All</label>
+          <input
+            type="radio"
+            id="inactive_id"
+            name="status"
+            value=""
+            checked
+          >
+      </th>
       <th class="text-end" style="color: Magenta">Actions</th>
     </tr>
     </thead>

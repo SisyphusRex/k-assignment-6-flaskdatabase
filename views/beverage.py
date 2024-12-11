@@ -14,6 +14,171 @@ db_session = Session()
 def beverage_list_view():
     """display a list of employees from the database"""
     beverages = db_session.query(Beverage).all()
+    status = request.form.get("status")
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=beverages,
+        status=status,
+    )
+
+
+def beverage_sort_by_active_true_view():
+    """display list sorted by id"""
+    beverages = db_session.query(Beverage).all()
+    new_beverages = []
+    for index, element in enumerate(beverages):
+        if beverages[index].active is True:
+            new_beverages.append(element)
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=new_beverages,
+    )
+
+
+def beverage_sort_by_pack_ascending_view():
+    """display list sorted by id"""
+    beverages = db_session.query(Beverage).all()
+    for index in range(len(beverages)):
+        for index2 in range(len(beverages)):
+            if beverages[index].pack < beverages[index2].pack:
+                temp = beverages[index]
+                beverages[index] = beverages[index2]
+                beverages[index2] = temp
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=beverages,
+    )
+
+
+def beverage_sort_by_pack_descending_view():
+    """display list sorted by id"""
+    beverages = db_session.query(Beverage).all()
+    for index in range(len(beverages)):
+        for index2 in range(len(beverages)):
+            if beverages[index].pack > beverages[index2].pack:
+                temp = beverages[index]
+                beverages[index] = beverages[index2]
+                beverages[index2] = temp
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=beverages,
+    )
+
+
+def beverage_sort_by_id_ascending_view():
+    """display list sorted by id"""
+    beverages = db_session.query(Beverage).all()
+    status = request.form.get("status")
+    new_beverages = []
+
+    for index in range(len(beverages)):
+        for index2 in range(len(beverages)):
+            if beverages[index].id < beverages[index2].id:
+                temp = beverages[index]
+                beverages[index] = beverages[index2]
+                beverages[index2] = temp
+
+    if status == "0":
+        for index, element in enumerate(beverages):
+            if beverages[index].active is False:
+                new_beverages.append(beverages[index])
+
+    if status == "1":
+        for index, element in enumerate(beverages):
+            if beverages[index].active is True:
+                new_beverages.append(beverages[index])
+
+    if status == "":
+        new_beverages = beverages
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=new_beverages,
+        status=status,
+    )
+
+
+def beverage_sort_by_id_descending_view():
+    """display list sorted by id"""
+    beverages = db_session.query(Beverage).all()
+    for index in range(len(beverages)):
+        for index2 in range(len(beverages)):
+            if beverages[index].id > beverages[index2].id:
+                temp = beverages[index]
+                beverages[index] = beverages[index2]
+                beverages[index2] = temp
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=beverages,
+    )
+
+
+def beverage_sort_by_name_ascending_view():
+    """display list sorted by name"""
+    beverages = db_session.query(Beverage).all()
+
+    for index in range(len(beverages)):
+        for index2 in range(len(beverages)):
+            if beverages[index].name < beverages[index2].name:
+                temp = beverages[index]
+                beverages[index] = beverages[index2]
+                beverages[index2] = temp
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=beverages,
+    )
+
+
+def beverage_sort_by_name_descending_view():
+    """display list sorted by name"""
+    beverages = db_session.query(Beverage).all()
+
+    for index in range(len(beverages)):
+        for index2 in range(len(beverages)):
+            if beverages[index].name > beverages[index2].name:
+                temp = beverages[index]
+                beverages[index] = beverages[index2]
+                beverages[index2] = temp
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=beverages,
+    )
+
+
+def beverage_sort_by_price_ascending_view():
+    """sort by price"""
+    beverages = db_session.query(Beverage).all()
+
+    for index in range(len(beverages)):
+        for index2 in range(len(beverages)):
+            if beverages[index].price < beverages[index2].price:
+                temp = beverages[index]
+                beverages[index] = beverages[index2]
+                beverages[index2] = temp
+
+    return render_template(
+        "beverage/beverage_list.html",
+        beverages=beverages,
+    )
+
+
+def beverage_sort_by_price_descending_view():
+    """sort by price"""
+    beverages = db_session.query(Beverage).all()
+
+    for index in range(len(beverages)):
+        for index2 in range(len(beverages)):
+            if beverages[index].price > beverages[index2].price:
+                temp = beverages[index]
+                beverages[index] = beverages[index2]
+                beverages[index2] = temp
 
     return render_template(
         "beverage/beverage_list.html",

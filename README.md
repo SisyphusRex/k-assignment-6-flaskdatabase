@@ -65,6 +65,7 @@ You can get up to 40 assignment points of extra credit by adding additional func
 * Use JavaScript / jQuery to handle getting to the edit page of a item in the list by setting a click listener on the table row for the item. (This would replace the edit link from scaffolding)
 * Use JavaScript / jQuery to pop up a confirmation delete message when deleting a beverage. (I realize that there is already a delete check via a whole page, but I want a JS one in addition to that for the Extra Credit)
 * Ability to click on a table header and sort the list of items by that column. You must do at least 2 column headings.
+    1. I attempted this one.  I can sort by the headers, albeit not in place, but by rendering a new view.  Now, I tried adding the radio buttons for Active, Inactive, All, but I can't get the table to show up.  The only button I tried the Active, Inactive, All radio button filtering on is sorting Price by Ascending order.
 * Write at least 2 unit tests to verify some part of your code.
 
 ### Notes
@@ -119,4 +120,7 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
     * I don't remember if the database came this way, or if I screwed something up
 
 3. https://api.beverage.barnesbrothers.net/beverages
+
+4. 12/11/24 Filtering table by Active (true, false) using radio buttons not working.
+    * Currently, you can sort the table by all headers except for Price Ascending because I am trying to work out how to simultaneously filter the table by Active using radio buttons.  Price ascending is the "test button" for the moment
 
