@@ -6,14 +6,24 @@
   <h1 style="color: Cyan"> Beverage List</h1>
   <a href="{{ url_for('beverage_add_view') }}" class="btn btn-primary float-end">Add New</a>
   <table class="table table-striped">
+    <caption>
+      <span class="sr-only">
+      </span>
+    <thead>
     <tr>
-      <th style="color: HotPink">ID</th>
-      <th style="color: Pink">Name</th>
-      <th style="color: Plum">Pack</th>
+      <th>
+        <button>
+          ID
+
+        </button>
+      <th style="color: Pink" onclick="sortTable(1)">Name</th>
+      <th style="color: Plum" >Pack</th>
       <th style="color: MediumVioletRed">Price</th>
       <th style="color: PaleVioletRed">Active</th>
       <th class="text-end" style="color: Magenta">Actions</th>
     </tr>
+    </thead>
+    <tbody>
     {% for beverage in beverages %}
       <tr>
         <td>{{ beverage.id }}</td>
@@ -30,7 +40,9 @@
           </a>
           <a href="{{ url_for('beverage_delete_view', pk=beverage.id) }}" class="btn btn-danger">Delete</a>
         </td>
+      </tbody>
       </tr>
     {% endfor %}
   </table>
 {% endblock content %}
+

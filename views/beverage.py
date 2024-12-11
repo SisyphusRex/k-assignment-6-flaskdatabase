@@ -1,6 +1,6 @@
 # Third-party imports
 from flask import flash, render_template, request, redirect, url_for
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
 
 # First-party imports

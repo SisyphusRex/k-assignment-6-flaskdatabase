@@ -104,6 +104,8 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
     * how to test for None/null in jinja (use none)
 4. https://stackoverflow.com/questions/20134651/does-jinja2-support-nested-if-statements
     * jinja2 nested if statements
+5. https://www.w3schools.com/howto/howto_js_sort_table.asp#:~:text=Sort%20Table%20by%20Clicking%20the,ascending%20(A%20to%20Z).
+    * try to sort by table header
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
