@@ -62,10 +62,26 @@ If you do not dump, add, commit and otherwise include it with your submission, I
 You can get up to 40 assignment points of extra credit by adding additional functionality (Max 8 points per feature). If you attempt any of this extra credit, be sure to add a section to this README stating what Extra Credit you are attempting. Otherwise, I may not know to look for it. The extra credit can be obtained by adding the following features:
 
 * Validate all information that is submitted to ensure it is valid. This includes Insert and Update of Beverages.
+    1. I looked at this one.  ID, Name, and Price should be easy to validate as the first two are just strings and the last is a float.  Active is a radio button and validation is inherent.  As a matter of fact, unless there are further guidelines concerning ID and Name, they can be strings of any value.
+    2. Unfortunantly, validating Pack will entail too much scope creep.  I would have to:
+        1. Figure out what all the different pack values mean
+        2. Create a Regex for every possible combination of units, package size, package quantity
+        3. OR modify the Beverage model's pack attribute to be more granular with sub-attributes
+            1. Modify the Add and Edit views to account for new sub-attributes
+    3. But, I could do a simple pack validation by checking for at least one integer(quantity) and at least one string(unit)
+        1. Nope.  Not all existing beverages have a Pack of quantity and unit that can be split into two strings.  I will abandon this one for scope creep.  I would need to sanitize the existing database first.
+    4. At this point, the only input I will validate is Price and maybe a simple Pack validation to avoid scope creep.
+    5. I enabled Price validation with one caveat: my validator assumes that floats of any length can be entered, beyond dollars and cents.  While this allows for users to input seemingly illogical prices (49.00000304 for example), this is not a fault.  Look at gas prices per gallon: they often involve numbers smaller than 1 cent.  Beverages could POTENTIALLY involve numbers smaller than one cent.  While unusual, I will rely on the user to make that determination.  The user's business logic may require more price granularity.
+        1. I could change the Beverage model to include a get_price() method that returns the self.price formatted to two decimal places .2f but I think this would confuse users if they don't know the actual price is more granular.  get_price() would change a self.price of 49.009 and return 49.00 or 49.01 depending on my rounding.
+    6. EDIT: ID must be validated.  All of the initial IDs are of length 6 and only contain letters and 0-9.
+    7. As of 12/11/2024, ID and Price are explicitly validated via utility methods.  Active is implicitly validated via radio buttons.  Name is implicitly validated by checking for existence of a string.
 * Use JavaScript / jQuery to handle getting to the edit page of a item in the list by setting a click listener on the table row for the item. (This would replace the edit link from scaffolding)
+    1. I put a click listener into the base.html and it works EXCEPT that it also reacts to clicking on the header row.
 * Use JavaScript / jQuery to pop up a confirmation delete message when deleting a beverage. (I realize that there is already a delete check via a whole page, but I want a JS one in addition to that for the Extra Credit)
 * Ability to click on a table header and sort the list of items by that column. You must do at least 2 column headings.
-    1. I attempted this one.  I can sort by the headers, albeit not in place, but by rendering a new view.  Now, I tried adding the radio buttons for Active, Inactive, All, but I can't get the table to show up.  The only button I tried the Active, Inactive, All radio button filtering on is sorting Price by Ascending order.
+    1. I attempted this one.  I can sort by the headers, albeit not in place, but by rendering a new view.  Now, I tried adding the radio buttons for Active, Inactive, All, but I can't get the table to show up.  The only button I tried the Active, Inactive, All radio button filtering on is sorting Price by Ascending order.  The other header buttons sort as they should.
+    2. I commented out the status checker on Price sort in Ascending order, so it sorts as normal.
+    3. Active, Inactive, All radio buttons are non functional
 * Write at least 2 unit tests to verify some part of your code.
 
 ### Notes
@@ -107,7 +123,12 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
     * jinja2 nested if statements
 5. https://www.w3schools.com/howto/howto_js_sort_table.asp#:~:text=Sort%20Table%20by%20Clicking%20the,ascending%20(A%20to%20Z).
     * try to sort by table header
-
+6. https://gist.github.com/gibtang/83f9681b525908900ec4b490992f032d
+    * sort using sorted() method plus lambda function
+7. https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_event_click
+    * jquery click listener
+8. https://stackoverflow.com/questions/43099296/best-method-for-dynamically-building-url-with-flask-url-for
+    * use flask url_for() inside jquery click listener
 
 ## Known Problems, Issues, And/Or Errors in the Program
 1. 12/05/24 TypeError when using the Active field.  True/False and 0/1 do not work as bools.
@@ -123,4 +144,10 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 
 4. 12/11/24 Filtering table by Active (true, false) using radio buttons not working.
     * Currently, you can sort the table by all headers except for Price Ascending because I am trying to work out how to simultaneously filter the table by Active using radio buttons.  Price ascending is the "test button" for the moment
+
+5. 12/11/24
+    * I tried making a utils class that houses the sorting methods until I realized that each beverage attribute would have to have a method for both ascending and descending order.  I did some research and there is a lambda function I could pass, but that is beyond the scope of this project
+
+6. 12/11/24
+    * jquery click listener responds to clicking on table header when it should only be rows
 

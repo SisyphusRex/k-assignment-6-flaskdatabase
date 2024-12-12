@@ -4,6 +4,7 @@
 
 {% block content %}
   <h1 style="color: Cyan"> Beverage List</h1>
+  <p style="color: Cyan">To Edit a Beverage, Double-Click on the row.</p>
   <a href="{{ url_for('beverage_add_view') }}" class="btn btn-primary float-end">Add New</a>
   <table class="table table-striped">
     <caption>
@@ -72,7 +73,7 @@
         </a>
       </th>
       <th style="color: PaleVioletRed">
-        Active
+
         <div class="mb-3">
           <label for="active_id" class="form-label" style="color: Cyan">Active</label>
           <input
@@ -112,19 +113,21 @@
     </thead>
     <tbody>
     {% for beverage in beverages %}
-      <tr>
+      <tr data-url="{{ url_for('beverage_edit_view', pk=beverage.id) }}">
         <td>{{ beverage.id }}</td>
         <td>{{ beverage.name }}</td>
         <td>{{ beverage.pack }}</td>
         <td>{{ beverage.price }}</td>
         <td>{{ beverage.active }}</td>
         <td class="text-end">
+          <!--
           <a
             href="{{ url_for('beverage_edit_view', pk=beverage.id) }}"
             class="btn btn-success"
           >
             Edit
           </a>
+          -->
           <a href="{{ url_for('beverage_delete_view', pk=beverage.id) }}" class="btn btn-danger">Delete</a>
         </td>
       </tbody>

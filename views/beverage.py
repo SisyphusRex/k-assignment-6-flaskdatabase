@@ -5,12 +5,12 @@ from sqlalchemy.orm import sessionmaker
 
 # First-party imports
 from models.beverage import Beverage
-from utils import Utilities
+from views.utils import Utilities
 
 engine = create_engine("sqlite:///db.sqlite3", echo=False)
 Session = sessionmaker(bind=engine)
 db_session = Session()
-sorter = Utilities()
+utility = Utilities()
 
 
 def beverage_list_view():
@@ -84,22 +84,22 @@ def beverage_sort_by_id_ascending_view():
                 beverages[index] = beverages[index2]
                 beverages[index2] = temp
 
-    if status == "0":
-        for index, element in enumerate(beverages):
-            if beverages[index].active is False:
-                new_beverages.append(beverages[index])
+    # if status == "0":
+    #     for index, element in enumerate(beverages):
+    #         if beverages[index].active is False:
+    #             new_beverages.append(beverages[index])
 
-    if status == "1":
-        for index, element in enumerate(beverages):
-            if beverages[index].active is True:
-                new_beverages.append(beverages[index])
+    # if status == "1":
+    #     for index, element in enumerate(beverages):
+    #         if beverages[index].active is True:
+    #             new_beverages.append(beverages[index])
 
-    if status == "":
-        new_beverages = beverages
+    # if status == "":
+    #     new_beverages = beverages
 
     return render_template(
         "beverage/beverage_list.html",
-        beverages=new_beverages,
+        beverages=beverages,
         status=status,
     )
 
@@ -202,12 +202,18 @@ def beverage_add_view():
 
         if not id_:
             errors.append("ID is required.")
+        elif not utility.is_valid_id(id_):
+            errors.append(
+                "ID must be 6 characters.\nValid characters include 0-9 and A-Z"
+            )
         if not name:
             errors.append("Name is required.")
         if not pack:
             errors.append("Pack is required.")
         if not price:
             errors.append("Price is required.")
+        elif not utility.is_valid_price(price):
+            errors.append("Price must be a float.")
         if status is None:
             errors.append("Status active/inactive is required.")
 
@@ -250,8 +256,12 @@ def beverage_edit_view(pk):
             errors.append("Name is required.")
         if not pack:
             errors.append("Pack is required.")
+
         if not price:
             errors.append("Price is required.")
+        elif not utility.is_valid_price(price):
+            errors.append("Price must be a float.")
+
         if status is None:
             errors.append("Status active/inactive is required.")
 
