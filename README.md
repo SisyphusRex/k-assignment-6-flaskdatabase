@@ -90,7 +90,8 @@ You can get up to 40 assignment points of extra credit by adding additional func
         2. pytest throws a runtime error
         3. On second thought, these are integration tests and beyond the scope
     3. I think I can write unit tests for the model Beverage
-    4.
+    4. finished unit tests for models and utilities
+        1. I think writing more tests for is_valid_pack() will help me define a thorough pack validation method
 
 ### Notes
 
