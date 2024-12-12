@@ -84,7 +84,10 @@ You can get up to 40 assignment points of extra credit by adding additional func
     2. I commented out the status checker on Price sort in Ascending order, so it sorts as normal.
     3. Active, Inactive, All radio buttons are non functional
 * Write at least 2 unit tests to verify some part of your code.
-    1. 12/11/2024: started unit tests by making tests directory and test_units.py
+    1. 12/11/2024: started unit tests by making tests directory and test_beverage_view.py
+    2. I'm not sure how to test view methods.  They return render_template.
+        1. I attempted to test a view by making my own method that returns a render_template and then assertingequal the view method vs my method
+        2. pytest throws a runtime error
 
 ### Notes
 
