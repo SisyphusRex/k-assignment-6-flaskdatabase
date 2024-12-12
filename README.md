@@ -78,6 +78,7 @@ You can get up to 40 assignment points of extra credit by adding additional func
 * Use JavaScript / jQuery to handle getting to the edit page of a item in the list by setting a click listener on the table row for the item. (This would replace the edit link from scaffolding)
     1. I put a click listener into the base.html and it works EXCEPT that it also reacts to clicking on the header row.
 * Use JavaScript / jQuery to pop up a confirmation delete message when deleting a beverage. (I realize that there is already a delete check via a whole page, but I want a JS one in addition to that for the Extra Credit)
+    1. pasted copied script into beverage_delete.html, doesn't work as of 12/11/2024
 * Ability to click on a table header and sort the list of items by that column. You must do at least 2 column headings.
     1. I attempted this one.  I can sort by the headers, albeit not in place, but by rendering a new view.  Now, I tried adding the radio buttons for Active, Inactive, All, but I can't get the table to show up.  The only button I tried the Active, Inactive, All radio button filtering on is sorting Price by Ascending order.  The other header buttons sort as they should.
     2. I commented out the status checker on Price sort in Ascending order, so it sorts as normal.
@@ -129,7 +130,8 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
     * jquery click listener
 8. https://stackoverflow.com/questions/43099296/best-method-for-dynamically-building-url-with-flask-url-for
     * use flask url_for() inside jquery click listener
-
+9. https://craftpip.github.io/jquery-confirm/
+    * jquery confirm method popup
 ## Known Problems, Issues, And/Or Errors in the Program
 1. 12/05/24 TypeError when using the Active field.  True/False and 0/1 do not work as bools.
     * Need to figure out how to convert input to bool
@@ -151,3 +153,5 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 6. 12/11/24
     * jquery click listener responds to clicking on table header when it should only be rows
 
+7. 12/11/24
+    * jquery confirm script in beverage_delete.html doesn't work

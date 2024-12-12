@@ -87,7 +87,22 @@
 
     </div>
 
+
     <h3 style="color: Cyan">Are you sure you want to delete this beverage?</h3>
+    <script>
+      $.confirm({
+        title: 'Confirm!',
+        content: 'Are you sure you want to do this?',
+        buttons: {
+          confirm: function() {
+            // User clicked confirm
+          },
+          cancel: function() {
+            // User clicked cancel
+          }
+        }
+      });
+      </script>
     <button class="btn btn-danger" type="submit">Delete</button>
     <a href="{{ url_for('beverage_list_view') }}" class="btn btn-secondary">Cancel</a>
 
