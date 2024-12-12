@@ -88,7 +88,9 @@ You can get up to 40 assignment points of extra credit by adding additional func
     2. I'm not sure how to test view methods.  They return render_template.
         1. I attempted to test a view by making my own method that returns a render_template and then assertingequal the view method vs my method
         2. pytest throws a runtime error
+        3. On second thought, these are integration tests and beyond the scope
     3. I think I can write unit tests for the model Beverage
+    4.
 
 ### Notes
 
