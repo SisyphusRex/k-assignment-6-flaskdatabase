@@ -136,6 +136,8 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
     * use flask url_for() inside jquery click listener
 9. https://craftpip.github.io/jquery-confirm/
     * jquery confirm method popup
+10. https://circleci.com/blog/testing-flask-framework-with-pytest/
+    * how to use pytest on flask
 
 ## Known Problems, Issues, And/Or Errors in the Program
 1. 12/05/24 TypeError when using the Active field.  True/False and 0/1 do not work as bools.
