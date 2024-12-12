@@ -84,6 +84,7 @@ You can get up to 40 assignment points of extra credit by adding additional func
     2. I commented out the status checker on Price sort in Ascending order, so it sorts as normal.
     3. Active, Inactive, All radio buttons are non functional
 * Write at least 2 unit tests to verify some part of your code.
+    1. 12/11/2024: started unit tests by making tests directory and test_units.py
 
 ### Notes
 
@@ -132,6 +133,7 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
     * use flask url_for() inside jquery click listener
 9. https://craftpip.github.io/jquery-confirm/
     * jquery confirm method popup
+
 ## Known Problems, Issues, And/Or Errors in the Program
 1. 12/05/24 TypeError when using the Active field.  True/False and 0/1 do not work as bools.
     * Need to figure out how to convert input to bool
@@ -147,11 +149,14 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 4. 12/11/24 Filtering table by Active (true, false) using radio buttons not working.
     * Currently, you can sort the table by all headers except for Price Ascending because I am trying to work out how to simultaneously filter the table by Active using radio buttons.  Price ascending is the "test button" for the moment
 
-5. 12/11/24
+5. 12/11/24 outsource sort method to utils class
     * I tried making a utils class that houses the sorting methods until I realized that each beverage attribute would have to have a method for both ascending and descending order.  I did some research and there is a lambda function I could pass, but that is beyond the scope of this project
 
-6. 12/11/24
+6. 12/11/24 jquery click listener on header
     * jquery click listener responds to clicking on table header when it should only be rows
 
-7. 12/11/24
+7. 12/11/24 jquery confirm delete script
     * jquery confirm script in beverage_delete.html doesn't work
+
+8. 12/11/24
+    * After messing around with the table in attempt to add more functionality, the rows are no longer striped.  In beverage_list.html, <table class="table table-striped"> should make it striped.
