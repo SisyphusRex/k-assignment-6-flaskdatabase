@@ -1,9 +1,7 @@
 # Assignment 6 - Web Application to Manage Beverages
 
 ## Author
-Walter Podewil
-CIS 226
-November 23, 2024
+
 
 
 ## Description
