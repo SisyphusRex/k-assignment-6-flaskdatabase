@@ -5,8 +5,8 @@ class Utilities:
     """utilities class"""
 
     def is_valid_id(self, input_string: str) -> bool:
-        """validate whether ID is 6 characters and only includes alphabet and numbers"""
-        if len(input_string) != 6:
+        """validate whether ID is 5 characters and only includes alphabet and numbers"""
+        if len(input_string) != 5:
             return False
         valid_chars = [
             "0",
